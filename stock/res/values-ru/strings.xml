@@ -2,21 +2,25 @@
 <resources>
 
     <string name="app_name">stock</string>
-    <string name="title_section1">1 Main</string>
-    <string name="title_section2">2 Shares</string>
-    <string name="title_section3">3 Mutual funds</string>
-    <string name="title_section4">4 ETFs</string>
-    <string name="title_section5">5 Bonds</string>
-    <string name="title_section6">6 Derivatives</string>
-    <string name="title_section7">7 Foreign currency</string>
-    <string name="title_section8">8 Educational funds</string>
-    <string name="title_section9">9 תצוגת הנתונים</string>
-    <string name="title_section10">10 Insurance</string>
-    <string name="title_section11">11 Pension</string>
-        
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="accounts">
+        <item>1 Main</item>
+        <item>2 Shares</item>
+        <item>3 Mutual funds</item>
+        <item>4 ETFs</item>
+        <item>5 Bonds</item>
+        <item>6 Derivatives</item>
+        <item>7 Foreign currency</item>
+        <item>8 Educational funds</item>
+        <item>9 תצוגת הנתונים</item>
+        <item>10 Insurance</item>
+        <item>11 Pension</item>
+        <item>Earth</item>
+        <item>Mars</item>
+    </string-array>
 
 </resources>
