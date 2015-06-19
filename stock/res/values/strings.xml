@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">stock</string>
+    <string name="title_section1">Main</string>
+    <string name="title_section2">Shares</string>
+    <string name="title_section3">Mutual funds</string>
+    <string name="title_section4">ETFs</string>
+    <string name="title_section5">Bonds</string>
+    <string name="title_section6">Derivatives</string>
+    <string name="title_section7">Foreign currency</string>
+    <string name="title_section8">Educational funds</string>
+    <string name="title_section9">Provident funds</string>
+    <string name="title_section10">Insurance</string>
+    <string name="title_section11">Pension</string>
+        
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
