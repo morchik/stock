@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Отправить SMS Tele2.kz</string>
+    <string name="dummy_button">Отправить Sms</string>
+    <string name="settings">Настройки</string>
+    <string name="dummy_content">Привет</string>
+    <string name="text_number">Номер телефона:</string>
+    <string name="text_message">Текст SMS сообщения:</string>
+    <string name="text_hint_number">7071234567</string>
+    <string name="text_status">Ваш номер:7072282999</string>
+    <string name="t_your_phone">Ваш номер телефона tele2.kz</string>
+    <string name="t_your_pass">Пароль от личного кабинета tele2.kz</string>
+    <string name="t_send_phone">Номер телефона куда отправлять SMS по умолчанию tele2.kz</string>
+    <string name="t_debug_mode">Режим отладочной печати </string>
+    <string name="text_err_login">Ошибка отпраки проверьте ваш номер,пароль и интернет</string>
+    <string name="text_suc_send">Ваше смс отправлено</string>
+    <string name="text_pass_corct">Ваш номер и пароль подошли</string>
+    <string name="text_sms_left"> Осталось смс </string>
+    <string name="text_err_online">Нет подключения к интернету</string>
+    <string name="text_err_num10">Номера телефонов должны быть 10 цифр </string>
+    <string name="text_err_sett">Пожалуйста сначала в настройках установите ваш номер телефона и пароль от личного кабинета tele2.kz</string>
+    <string name="text_err_msg0">Текст сообщения не может быть пустым</string>
+    
+</resources>
