@@ -77,7 +77,7 @@ public class FullscreenActivity extends Activity {
 		return super.onCreateOptionsMenu(menu);
 	}
 
-	private String sy_phone, sy_pass;
+	private String sy_login, sy_pass;
 	Boolean b_debug;
 	private SharedPreferences sp;
 	private SystemUiHider mSystemUiHider;
@@ -86,10 +86,10 @@ public class FullscreenActivity extends Activity {
 
 	protected void onResume() {
 		b_debug = sp.getBoolean("chb_debug", false);
-		sy_phone = sp.getString("y_phone", "");
+		sy_login = sp.getString("y_login", "");
 		sy_pass = sp.getString("y_pass", "");
 		String s_temp = getString(R.string.text_status);
-		String text = s_temp.replace("7072282999", sy_phone);
+		String text = s_temp.replace("7072282999", sy_login);
 		tvStatus.setText(text);
 		if (edNumber.getEditableText().toString().equalsIgnoreCase("")) {
 			String ssend_phone = sp.getString("s_phone", "");
@@ -242,16 +242,10 @@ public class FullscreenActivity extends Activity {
 
 	@SuppressWarnings("deprecation")
 	public void click(View view) {
-		if (sy_phone.equalsIgnoreCase("") || sy_pass.equalsIgnoreCase("")) {
+		if (sy_login.equalsIgnoreCase("") || sy_pass.equalsIgnoreCase("")) {
 			Toast.makeText(this, getString(R.string.text_err_sett),
 					Toast.LENGTH_SHORT).show();
 			tvDebug.setText(getString(R.string.text_err_sett) + "\n"
-					+ tvDebug.getText().toString());
-		} else if ((sy_phone.length() != 10)
-				|| (edNumber.getEditableText().toString().length() != 10)) {
-			Toast.makeText(this, getString(R.string.text_err_num10),
-					Toast.LENGTH_SHORT).show();
-			tvDebug.setText(getString(R.string.text_err_num10) + "\n"
 					+ tvDebug.getText().toString());
 		} else if (edMessage.getEditableText().toString().length() < 1) {
 			Toast.makeText(this, getString(R.string.text_err_msg0),
@@ -265,8 +259,8 @@ public class FullscreenActivity extends Activity {
 
 			HttpTask task = new HttpTask();
 			task.execute(new String[] {
-					"http://www.almaty.tele2.kz/WebServices/authenticate.asmx/Authenticate",
-					"{\"number\": \"" + sy_phone + "\",  \"password\": \""
+					"https://passport.yandex-team.ru/auth?retpath=https://ang2.yandex-team.ru",
+					"{\"number\": \"" + sy_login + "\",  \"password\": \""
 							+ sy_pass + "\"}" });
 
 			HttpTask task2 = new HttpTask();
