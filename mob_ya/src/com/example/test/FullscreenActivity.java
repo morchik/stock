@@ -1,15 +1,16 @@
 package com.example.test;
 
+import java.io.UnsupportedEncodingException;
 import java.net.CookieHandler;
 import java.net.CookieManager;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import me.noip.adimur.mob_ya.R;
 
-import com.example.test.util.SystemUiHider;
-import com.example.test.util.rsa;
-
+import com.example.test.util.*;
+import android.webkit.WebView;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -30,7 +31,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Menu;
@@ -81,20 +81,21 @@ public class FullscreenActivity extends Activity {
 	Boolean b_debug;
 	private SharedPreferences sp;
 	private SystemUiHider mSystemUiHider;
-	private EditText edNumber, edMessage;
 	private TextView tvStatus, tvDebug;
-
+	public WebView webView;
+	
 	protected void onResume() {
+		Log.d("test", "start");
+		a.a("2248", "eb4aisoh7thoew4a");
+		Log.d("test", "mid");
+		a.a("eb4aisoh7thoew4a", "2248");
+		Log.d("test", "finish");
 		b_debug = sp.getBoolean("chb_debug", false);
 		sy_login = sp.getString("y_login", "");
 		sy_pass = sp.getString("y_pass", "");
 		String s_temp = getString(R.string.text_status);
 		String text = s_temp.replace("7072282999", sy_login);
 		tvStatus.setText(text);
-		if (edNumber.getEditableText().toString().equalsIgnoreCase("")) {
-			String ssend_phone = sp.getString("s_phone", "");
-			edNumber.setText(ssend_phone);
-		}
 		super.onResume();
 		try {
 			SensorManager mgr = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -124,8 +125,7 @@ public class FullscreenActivity extends Activity {
 
 		final View controlsView = findViewById(R.id.fullscreen_content_controls);
 		final View contentView = findViewById(R.id.fullscreen_content);
-		edNumber = (EditText) findViewById(R.id.edNumber);
-		edMessage = (EditText) findViewById(R.id.edMessage);
+		webView = (WebView) findViewById(R.id.viewRes);
 
 		tvStatus = (TextView) findViewById(R.id.tvStatus);
 		tvDebug = (TextView) findViewById(R.id.tvDebug);
@@ -242,27 +242,24 @@ public class FullscreenActivity extends Activity {
 	}
 
 	@SuppressWarnings("deprecation")
-	public void click(View view) {
+	public void click(View view) throws UnsupportedEncodingException {
 		if (sy_login.equalsIgnoreCase("") || sy_pass.equalsIgnoreCase("")) {
 			Toast.makeText(this, getString(R.string.text_err_sett),
 					Toast.LENGTH_SHORT).show();
 			tvDebug.setText(getString(R.string.text_err_sett) + "\n"
 					+ tvDebug.getText().toString());
-		} else if (edMessage.getEditableText().toString().length() < 1) {
-			Toast.makeText(this, getString(R.string.text_err_msg0),
-					Toast.LENGTH_SHORT).show();
-			tvDebug.setText(getString(R.string.text_err_msg0) + "\n"
-					+ tvDebug.getText().toString());
-		} else if (isOnline()) {
-			// test ajax
+		}  else if (isOnline()) {
+			// test post ya
 			CookieManager cookieManager = new CookieManager();
 			CookieHandler.setDefault(cookieManager);
 			
 			HttpTask task = new HttpTask();
 			task.execute(new String[] {
 					"https://passport.yandex-team.ru/auth",
-					"number=" + sy_login + "&passwd="
-							+ sy_pass + "&retpath=https://ang2.yandex-team.ru" });
+					"login=" + sy_login + "&passwd="
+							+ sy_pass + "&retpath="
+							+ URLEncoder.encode("https://ang2.yandex-team.ru/mobile/tasks/get", "UTF-8") } );
+							//+URLEncoder.encode("https://passport.yandex-team.ru", "UTF-8") } );
 			/*
 			HttpTask task2 = new HttpTask();
 			task2.execute(new String[] {
@@ -272,8 +269,15 @@ public class FullscreenActivity extends Activity {
 							+ edMessage.getEditableText().toString() + "\"}" });
 			*/
 			try {
-				SystemClock.sleep(100);
-				task.get();
+				SystemClock.sleep(1000);
+				if (task.get() != null) {
+					webView.loadData(task.get().toString(), "text/html; charset=UTF-8", null);
+					tvDebug.setText("result:"+task.get().length() + "\n"
+							+ tvDebug.getText().toString());
+					Toast.makeText(this, "result:"+task.get().length(),
+							Toast.LENGTH_SHORT).show();
+				}
+				
 				/*
 				if (!success.equalsIgnoreCase("true")) {
 					Toast.makeText(this, getString(R.string.text_err_login),
@@ -297,13 +301,13 @@ public class FullscreenActivity extends Activity {
 								+ amn + "\n" + tvDebug.getText().toString());
 					}
 				}
+				
 				if (b_debug) {
 					tvDebug.setText(task.get() + "\n"
 							+ tvDebug.getText().toString());
-					tvDebug.setText(task2.get() + "\n"
-							+ tvDebug.getText().toString());
-				}
-			*/
+					
+				}*/
+			
 			} catch (InterruptedException | ExecutionException e) {
 				Log.e("click", e.toString());
 				e.printStackTrace();
@@ -317,13 +321,13 @@ public class FullscreenActivity extends Activity {
 		}
 		tvDebug.setText((new Date()).toGMTString() + "\n"
 				+ tvDebug.getText().toString());
-		
+		/*
 		try{
 			rsa.main();
 		}catch(Exception e){
 			tvDebug.setText((new Date()).toGMTString()+ "\n" 
 					+ e.toString()+ "\n"
 					+ tvDebug.getText().toString());
-		}
+		}*/
 	}
 }
