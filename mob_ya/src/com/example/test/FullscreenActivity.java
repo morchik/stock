@@ -167,11 +167,12 @@ public class FullscreenActivity extends Activity {
 							controlsView.setVisibility(visible ? View.VISIBLE
 									: View.GONE);
 						}
-
+/*
 						if (visible && AUTO_HIDE) {
 							// Schedule a hide().
 							delayedHide(AUTO_HIDE_DELAY_MILLIS);
 						}
+*/
 					}
 				});
 
@@ -256,23 +257,24 @@ public class FullscreenActivity extends Activity {
 			// test ajax
 			CookieManager cookieManager = new CookieManager();
 			CookieHandler.setDefault(cookieManager);
-
+			
 			HttpTask task = new HttpTask();
 			task.execute(new String[] {
-					"https://passport.yandex-team.ru/auth?retpath=https://ang2.yandex-team.ru",
-					"{\"number\": \"" + sy_login + "\",  \"password\": \""
-							+ sy_pass + "\"}" });
-
+					"https://passport.yandex-team.ru/auth",
+					"number=" + sy_login + "&passwd="
+							+ sy_pass + "&retpath=https://ang2.yandex-team.ru" });
+			/*
 			HttpTask task2 = new HttpTask();
 			task2.execute(new String[] {
 					"http://www.almaty.tele2.kz/WebServices/smsService.asmx/SendSms",
 					"{\"msisdn\": \"" + edNumber.getEditableText().toString()
 							+ "\",  \"message\": \""
 							+ edMessage.getEditableText().toString() + "\"}" });
-
+			*/
 			try {
 				SystemClock.sleep(100);
-				String success = json_par.test_a(task.get());
+				task.get();
+				/*
 				if (!success.equalsIgnoreCase("true")) {
 					Toast.makeText(this, getString(R.string.text_err_login),
 							Toast.LENGTH_SHORT).show();
@@ -301,6 +303,7 @@ public class FullscreenActivity extends Activity {
 					tvDebug.setText(task2.get() + "\n"
 							+ tvDebug.getText().toString());
 				}
+			*/
 			} catch (InterruptedException | ExecutionException e) {
 				Log.e("click", e.toString());
 				e.printStackTrace();

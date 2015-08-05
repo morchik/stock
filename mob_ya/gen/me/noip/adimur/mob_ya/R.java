@@ -47,8 +47,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int settings=0x7f060002;
         public static final int t_debug_mode=0x7f06000b;
         public static final int t_send_phone=0x7f06000a;
+        public static final int t_your_login=0x7f060008;
         public static final int t_your_pass=0x7f060009;
-        public static final int t_your_phone=0x7f060008;
         public static final int text_err_login=0x7f06000c;
         public static final int text_err_msg0=0x7f060013;
         public static final int text_err_num10=0x7f060011;

@@ -12,7 +12,7 @@ import android.util.Log;
 
 public class HttpClient {
 
-	public String getPOSTAJAX(String getURL, String getPOSTParameters) {
+	public String getPOST(String getURL, String getPOSTParameters) {
 
 		// get Impersonation ID
 		String getResponseline = "";
@@ -28,10 +28,10 @@ public class HttpClient {
 					"application/json,text/plain,*/*");
 			urlConn.setRequestProperty("Accept-Language", "en-US,en;q=0.8");
 			urlConn.setRequestProperty("Connection", "keep-alive");
+			//urlConn.setRequestProperty("Content-Type",
+			//		"application/json; charset=utf-8");
 			urlConn.setRequestProperty("Content-Type",
-					"application/json; charset=utf-8");
-			// setRequestProperty("Content-Type",
-			// "application/x-www-form-urlencoded; charset=UTF-8");
+					"application/x-www-form-urlencoded; charset=UTF-8");
 
 			urlConn.setRequestProperty(
 					"User-Agent",
@@ -39,7 +39,7 @@ public class HttpClient {
 			urlConn.setRequestMethod("POST");
 			urlConn.setRequestProperty("Content-Length",
 					String.valueOf(getPOSTParameters.getBytes().length));
-			urlConn.setRequestProperty("X-Requested-With", "XMLHttpRequest");
+			//urlConn.setRequestProperty("X-Requested-With", "XMLHttpRequest");
 
 			// send the POSt Request
 			urlConn.setDoOutput(true);
@@ -96,7 +96,7 @@ public class HttpClient {
 	}
 
 	// imitate chrome
-	public void setRequestProperty(HttpURLConnection con) {
+	public void setMyRequestProperty(HttpURLConnection con) {
 		con.setRequestProperty("Accept", "application/json; charset=utf-8"); // ajax
 																				// application/json;
 																				// charset=utf-8
@@ -121,7 +121,7 @@ public class HttpClient {
 			con = (HttpURLConnection) (new URL(l_url)).openConnection();
 			con.setRequestMethod("GET");
 
-			setRequestProperty(con);
+			//setRequestProperty(con);
 			con.setDoInput(true);
 			con.setDoOutput(false);
 			con.setConnectTimeout(60000);

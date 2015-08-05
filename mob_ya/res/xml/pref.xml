@@ -2,8 +2,8 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <EditTextPreference
-        android:key="y_phone"
-        android:title="@string/t_your_phone" >
+        android:key="y_login"
+        android:title="@string/t_your_login" >
     </EditTextPreference>
     <EditTextPreference
         android:key="y_pass"

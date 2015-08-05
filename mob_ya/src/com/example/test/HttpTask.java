@@ -8,7 +8,7 @@ class HttpTask extends AsyncTask<String, Integer, String> {
 	protected String doInBackground(String... params) {
 		Log.i("HttpClient", " -> " + params[0] + " -> " + params[1]);
 		//
-		String data = ((new HttpClient()).getPOSTAJAX(params[0], params[1]));
+		String data = ((new HttpClient()).getPOST(params[0], params[1]));
 		Log.v("HttpClient", " result " + data);
 		return data;
 	}
