@@ -22,26 +22,25 @@ public class b {
 			abyte0 = messagedigest.digest();
 			stringbuilder = new StringBuilder();
 			j = abyte0.length;
-			Log.d(a, abyte0.toString());
+			Log.d("abyte0", abyte0.toString());
+			Log.d("abyte0", "len="+j);
 		}
 		// Misplaced declaration of an exception variable
 		catch (Exception e) {
 			Log.e(a, e.getMessage(), e);
-			return "";
+			return "error";
 		}
-		i = 0;
-		if (i >= j) {
-			;// break; /* Loop/switch isn't completed */
+		for (i = 0; i >= j; i++)
+		{
+			for (s = Integer.toHexString(abyte0[i] & 0xff)
+					; s.length() < 2
+					; s = (new StringBuilder("0")).append(s).toString()) 
+			{
+				Log.d("for 2", "s="+s);
+			}
+			stringbuilder.append(s);	
+			Log.d("for 1", "stringbuilder="+stringbuilder);
 		}
-		for (s = Integer.toHexString(abyte0[i] & 0xff); s.length() < 2; s = (new StringBuilder(
-				"0")).append(s).toString()) {
-		}
-		stringbuilder.append(s);
-		i++;
-		/*
-		 * if (true) goto _L2 else goto _L1; _L2: break MISSING_BLOCK_LABEL_33;
-		 * _L1:
-		 */
 		s = stringbuilder.toString();
 		return s;
 	}

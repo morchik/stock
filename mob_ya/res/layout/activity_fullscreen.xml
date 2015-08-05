@@ -20,7 +20,7 @@
             android:keepScreenOn="true"
             android:text="@string/text_status"
             android:textColor="#88b5e5"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -31,35 +31,10 @@
             android:textColor="#33b5e5"
             android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/edMessage"
+        <WebView
+            android:id="@+id/viewRes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/dummy_content"
-            android:maxLength="160"
-            android:textSize="18sp" >
-
-            <requestFocus />
-        </EditText>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:keepScreenOn="true"
-            android:text="@string/text_number"
-            android:textColor="#33b5e5"
-            android:textSize="14sp" />
-
-        <EditText
-            android:id="@+id/edNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/text_hint_number"
-            android:inputType="numberSigned"
-            android:maxLength="10"
-            android:textSize="18sp" >
-        </EditText>
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/tvDebug"

@@ -86,9 +86,9 @@ public class FullscreenActivity extends Activity {
 	
 	protected void onResume() {
 		Log.d("test", "start");
-		a.a("2248", "eb4aisoh7thoew4a");
+		Log.d("res", a.a("2248", "eb4aisoh7thoew4a"));
 		Log.d("test", "mid");
-		a.a("eb4aisoh7thoew4a", "2248");
+		Log.d("res", a.a("eb4aisoh7thoew4a", "2248"));
 		Log.d("test", "finish");
 		b_debug = sp.getBoolean("chb_debug", false);
 		sy_login = sp.getString("y_login", "");

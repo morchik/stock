@@ -29,7 +29,7 @@ public class a {
 				.append(s).append(s1).toString();
 		Log.d(a, (new StringBuilder("[getPassword]: salt=")).append(s)
 				.toString());
-		return b.a(s).substring(0, 6);
+		return b.a(s);
 	}
 
 	static void a(Context context, Long long1) {

@@ -12,6 +12,22 @@ import android.util.Log;
 
 public class HttpClient {
 
+	// imitate chrome
+	public void setRequestProperty(HttpURLConnection con) {
+		con.setRequestProperty("Accept",
+				"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
+		con.setRequestProperty("Accept-Encoding", "deflate");
+		con.setRequestProperty("Accept-Language",
+				"ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4");
+		con.setRequestProperty("Cache-Control", "no-cache");
+		con.setRequestProperty("Connection", "keep-alive");
+		con.setRequestProperty("DNT", "1");
+		con.setRequestProperty("Pragma", "no-cache");
+		con.setRequestProperty(
+				"User-Agent",
+				"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36");
+	}
+	
 	public String getPOST(String getURL, String getPOSTParameters) {
 
 		// get Impersonation ID
@@ -24,22 +40,14 @@ public class HttpClient {
 			HttpURLConnection urlConn = (HttpURLConnection) url
 					.openConnection();
 
-			urlConn.setRequestProperty("Accept",
-					"application/json,text/plain,*/*");
-			urlConn.setRequestProperty("Accept-Language", "en-US,en;q=0.8");
-			urlConn.setRequestProperty("Connection", "keep-alive");
-			//urlConn.setRequestProperty("Content-Type",
-			//		"application/json; charset=utf-8");
-			urlConn.setRequestProperty("Content-Type",
-					"application/x-www-form-urlencoded; charset=UTF-8");
-
-			urlConn.setRequestProperty(
-					"User-Agent",
-					"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.94 Safari/537.36");
+			setRequestProperty(urlConn);
+			urlConn.setConnectTimeout(90000);
+			
 			urlConn.setRequestMethod("POST");
 			urlConn.setRequestProperty("Content-Length",
 					String.valueOf(getPOSTParameters.getBytes().length));
-			//urlConn.setRequestProperty("X-Requested-With", "XMLHttpRequest");
+			urlConn.setRequestProperty("Content-Type", 
+			           "application/x-www-form-urlencoded");
 
 			// send the POSt Request
 			urlConn.setDoOutput(true);
@@ -93,24 +101,6 @@ public class HttpClient {
 			Log.e("HttpClient2", "\n" + ioe);
 		}
 		return getPOSTResponse;
-	}
-
-	// imitate chrome
-	public void setMyRequestProperty(HttpURLConnection con) {
-		con.setRequestProperty("Accept", "application/json; charset=utf-8"); // ajax
-																				// application/json;
-																				// charset=utf-8
-		/*
-		 * con.setRequestProperty("Accept-Encoding", "deflate");
-		 * con.setRequestProperty("Accept-Language",
-		 * "ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4");
-		 * con.setRequestProperty("Cache-Control", "no-cache");
-		 * con.setRequestProperty("Connection", "keep-alive");
-		 * con.setRequestProperty("DNT", "1"); con.setRequestProperty("Pragma",
-		 * "no-cache"); con.setRequestProperty( "User-Agent",
-		 * "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36"
-		 * );
-		 */
 	}
 
 	public String getData(String l_url) {
