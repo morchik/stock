@@ -86,9 +86,7 @@ public class FullscreenActivity extends Activity {
 	
 	protected void onResume() {
 		Log.d("test", "start");
-		Log.d("res", a.a("2248", "eb4aisoh7thoew4a"));
-		Log.d("test", "mid");
-		Log.d("res", a.a("eb4aisoh7thoew4a", "2248"));
+		Log.d("res", a.a("2248", "eb4aisoh7thoew4a").substring(0,6));
 		Log.d("test", "finish");
 		b_debug = sp.getBoolean("chb_debug", false);
 		sy_login = sp.getString("y_login", "");
@@ -254,10 +252,11 @@ public class FullscreenActivity extends Activity {
 			CookieHandler.setDefault(cookieManager);
 			
 			HttpTask task = new HttpTask();
+			String paswd = a.a(sy_pass, "eb4aisoh7thoew4a").substring(0,6);
 			task.execute(new String[] {
 					"https://passport.yandex-team.ru/auth",
 					"login=" + sy_login + "&passwd="
-							+ sy_pass + "&retpath="
+							+ paswd + "&retpath="
 							+ URLEncoder.encode("https://ang2.yandex-team.ru/mobile/tasks/get", "UTF-8") } );
 							//+URLEncoder.encode("https://passport.yandex-team.ru", "UTF-8") } );
 			/*

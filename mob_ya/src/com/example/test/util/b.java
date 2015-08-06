@@ -30,18 +30,19 @@ public class b {
 			Log.e(a, e.getMessage(), e);
 			return "error";
 		}
-		for (i = 0; i >= j; i++)
+		for (i = 0; (i < j) || (i < 8); i++)
 		{
 			for (s = Integer.toHexString(abyte0[i] & 0xff)
 					; s.length() < 2
 					; s = (new StringBuilder("0")).append(s).toString()) 
 			{
-				Log.d("for 2", "s="+s);
+				//Log.d("for 2", "s="+s);
 			}
 			stringbuilder.append(s);	
 			Log.d("for 1", "stringbuilder="+stringbuilder);
 		}
 		s = stringbuilder.toString();
+		Log.d("stringbuilder", stringbuilder.toString());
 		return s;
 	}
 
