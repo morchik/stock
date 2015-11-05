@@ -1,16 +1,30 @@
 package com.example2.test2;
 
+import java.util.Date;
 import android.support.v7.app.ActionBarActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class Test2 extends ActionBarActivity {
 
+	private EditText edNumber, edMessage;
+	private TextView tvDebug;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_test2);
+		edNumber = (EditText) findViewById(R.id.edNumber);
+		edMessage = (EditText) findViewById(R.id.edMessage);
+		tvDebug = (TextView) findViewById(R.id.tvDebug);
+		tvDebug.setMovementMethod(new ScrollingMovementMethod());
 	}
 
 	@Override
@@ -31,4 +45,13 @@ public class Test2 extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+	@SuppressWarnings("deprecation")
+	public void click(View view) {
+		tvDebug.setText((new Date()).toGMTString() 
+				+ "\n" + edNumber.getEditableText().toString() + "\n"
+				+ "\n" + edMessage.getEditableText().toString() + "\n"
+				+ tvDebug.getText().toString());
+	}
+
 }
