@@ -1,8 +1,8 @@
 package com.example2.test2;
 
 import java.util.Date;
-import android.support.v7.app.ActionBarActivity;
 import android.text.method.ScrollingMovementMethod;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +11,7 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Test2 extends ActionBarActivity {
+public class Test2 extends Activity {
 
 	private EditText edNumber, edMessage;
 	private TextView tvDebug;
