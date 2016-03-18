@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.md4.MainActivity" >
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" >
+    </include>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:keepScreenOn="true" >
+
+            <LinearLayout
+                android:id="@+id/fullscreen_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:keepScreenOn="true"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:keepScreenOn="true"
+                    android:onClick="click"
+                    android:text="@string/text_message"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dummy_content"
+                    android:inputType="textMultiLine"
+                    android:keepScreenOn="true"
+                    android:maxLength="140"
+                    android:maxLines="6"
+                    android:minLines="2"
+                    android:scrollbars="vertical"
+                    android:textSize="18sp" >
+
+                    <requestFocus />
+                </EditText>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:keepScreenOn="true"
+                    android:text="@string/text_number"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/text_hint_number"
+                    android:inputType="numberSigned"
+                    android:keepScreenOn="true"
+                    android:maxLength="10"
+                    android:textSize="18sp" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/tvDebug"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:hint="@string/text_hint_number"
+                    android:inputType="textMultiLine"
+                    android:maxLines="16"
+                    android:minLines="6"
+                    android:scrollbars="vertical"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <fragment
+            android:id="@+id/fragment_navigation"
+            android:name="com.tele2.md4.NavigationDrawerFragment"
+            android:layout_width="@dimen/navigation_drawer_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:layout="@layout/fragment_navigation_drawer" >
+        </fragment>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

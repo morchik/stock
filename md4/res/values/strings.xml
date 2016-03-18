@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="title_activity_main">SMS Tele2.kz</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_holo">Holo</string>
+    <string name="action_dark">Dark</string>
+    <string name="action_light">Light</string>
+    <string name="action_send">Send</string>
+    <string name="action_check">Holo</string>
+    <string name="app_name">md 4 Tele2.kz</string>
+    <string name="dummy_button">Send Sms</string>
+    <string name="settings">Settings</string>
+    <string name="dummy_content">Hi</string>
+    <string name="text_number">Phone number:</string>
+    <string name="text_message">Text SMS message:</string>
+    <string name="text_hint_number">7071234567</string>
+    <string name="text_status">Your number:</string>
+    <string name="t_your_phone">Your phone number tele2.kz</string>
+    <string name="t_your_pass">Password from private cabinet tele2.kz</string>
+    <string name="t_send_phone">Default phone number to send SMS tele2.kz</string>
+    <string name="t_debug_mode">Debug mode print </string>
+    <string name="text_err_login">Error login pls, check number,password and internet</string>
+    <string name="text_suc_send">Your sms sended</string>
+    <string name="text_pass_corct">Your number and password correct</string>
+    <string name="text_sms_left"> SMS left </string>
+    <string name="text_err_online"> Not connected to the internet </string>
+    <string name="text_err_num10"> Phone number have to be 10 digits </string>
+    <string name="text_err_sett">Please, first in settings set your phone and password from tele2.kz private cabinet</string>
+    <string name="text_err_msg0">Message text cannot be empty</string>
+    <string name="text_start_send">trying send sms</string>
+    <string name="text_finish_send">result of sending sms</string>
+    <string name="pub_key">30820122300d06092a864886f70d01010105000382010f003082010a02820101009fde491de233924fb1924d070e20468a36ca5f9a7a022a6e18bec96cdcedf4e7a78e0a142b27a4a3b1a995cc01bf6479ebbafb768a2afb7c10e94519d17eeaa08cc599b3fb35052b493520ff0ccb65bdeed6153fd72b42b60e4c6c5ff815c78a6adc73535c918f0e7e5f17f7c1454ca93671099ab682299cb741e3616ce7c453cf79262ed84a6f1eaf4965fe16b3f51fbe93bf4078a63cd20cf7765bfe0b5d5755ff1a3ea6007f652d764a9747ea872617cb332c4c137f61d616c2a66d2d1e1cc4f1c75320e5ead7aa2430bd938917b04293df97efe2a7737472d377becf89d7a5c8d8378b0201ee9b73241ded29d0aded21c5bdec45a2179a0d28b29c039b4f0203010001</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

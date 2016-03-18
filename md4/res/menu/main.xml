@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.md4.MainActivity" >
+
+    <item
+        android:id="@+id/action_send"
+        android:orderInCategory="100"
+        android:title="@string/action_send"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_holo"
+        android:orderInCategory="200"
+        android:title="@string/action_holo"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_light"
+        android:orderInCategory="300"
+        android:title="@string/action_light"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_dark"
+        android:orderInCategory="300"
+        android:title="@string/action_dark"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="400"
+        android:title="@string/action_settings"
+        app:showAsAction="ifRoom"/>
+
+</menu>
