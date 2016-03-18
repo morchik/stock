@@ -29,7 +29,9 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 */
 
+import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 public class MySSLSocketFactory extends SSLSocketFactory {
     SSLContext sslContext = SSLContext.getInstance("TLS");
@@ -61,7 +63,7 @@ public class MySSLSocketFactory extends SSLSocketFactory {
     public Socket createSocket() throws IOException {
         return sslContext.getSocketFactory().createSocket();
     }
-/*
+
     public static DefaultHttpClient getNewHttpClient() {
         try {
             KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
@@ -85,6 +87,6 @@ public class MySSLSocketFactory extends SSLSocketFactory {
             return new DefaultHttpClient();
         }
     }
- */   
+   
 }
 
