@@ -1,4 +1,4 @@
-package com.http.clnt;
+package com.ktkt.http.clnt;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -171,21 +171,35 @@ public class HttpClient {
 		 */
 	}
 
-	public String getData_500(String l_url) {
+	public String getData_Post(String l_url, String getPOSTParameters) {
 		HttpURLConnection con = null;
 		InputStream is = null;
 
 		try {
 			con = (HttpURLConnection) (new URL(l_url)).openConnection();
-			con.setRequestMethod("GET");
+			//con.setRequestMethod("GET");
 
-			setRequestProperty(con);
+			//setRequestProperty(con);
 			con.setDoInput(true);
 			con.setDoOutput(false);
 			con.setConnectTimeout(60000);
-			con.connect();
+			con.setRequestMethod("POST");
+			con.setRequestProperty("Content-Length",
+					String.valueOf(getPOSTParameters.getBytes().length));
+			con.setRequestProperty("X-Requested-With", "XMLHttpRequest");
+
+			// send the POSt Request
+			con.setDoOutput(true);
+			con.setDoInput(true);
+			DataOutputStream writeRequest = new DataOutputStream(
+					con.getOutputStream());
+			writeRequest.write(getPOSTParameters.getBytes("UTF-8"));
+			writeRequest.flush();
+			writeRequest.close();
+
+			//con.connect();
 			int stt = con.getResponseCode();
-			//Log.d("HttpClient", "html getResponseCode " + stt + " " + l_url);
+			System.out.println("HttpClient.getData_Post html getResponseCode " + stt + " " + l_url);
 			StringBuffer buffer = new StringBuffer();
 			is = con.getInputStream();
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));

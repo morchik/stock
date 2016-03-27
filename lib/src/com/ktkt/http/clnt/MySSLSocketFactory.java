@@ -1,6 +1,7 @@
-package com.tele2.md4.http;
+package com.ktkt.http.clnt;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.security.KeyManagementException;
@@ -12,6 +13,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 /*
@@ -29,13 +31,13 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 */
 
-import org.apache.http.conn.ClientConnectionManager;
-import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.apache.http.impl.client.DefaultHttpClient;
+//import org.apache.http.conn.ClientConnectionManager;
+//import org.apache.http.conn.ssl.SSLSocketFactory;
+//import org.apache.http.impl.client.DefaultHttpClient;
 
 public class MySSLSocketFactory extends SSLSocketFactory {
-    SSLContext sslContext = SSLContext.getInstance("TLS");
-
+//    SSLContext sslContext = SSLContext.getInstance("TLS");
+/*
     public MySSLSocketFactory(KeyStore truststore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, UnrecoverableKeyException {
         super(truststore);
 
@@ -87,6 +89,52 @@ public class MySSLSocketFactory extends SSLSocketFactory {
             return new DefaultHttpClient();
         }
     }
+*/
+	@Override
+	public String[] getDefaultCipherSuites() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] getSupportedCipherSuites() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Socket createSocket(String arg0, int arg1) throws IOException,
+			UnknownHostException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Socket createSocket(InetAddress arg0, int arg1) throws IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Socket createSocket(String arg0, int arg1, InetAddress arg2, int arg3)
+			throws IOException, UnknownHostException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Socket createSocket(InetAddress arg0, int arg1, InetAddress arg2,
+			int arg3) throws IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Socket createSocket(Socket arg0, String arg1, int arg2, boolean arg3)
+			throws IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
    
 }
 

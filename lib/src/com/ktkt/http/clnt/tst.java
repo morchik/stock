@@ -1,4 +1,4 @@
-package com.http.clnt;
+package com.ktkt.http.clnt;
 
 public class tst {
 	public static String str(){

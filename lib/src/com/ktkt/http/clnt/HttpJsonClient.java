@@ -1,4 +1,4 @@
-package com.tele2.md4.http;
+package com.ktkt.http.clnt;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -8,12 +8,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import android.util.Log;
+//import org.apache.http.client.methods.HttpPost;
+//import org.apache.http.impl.client.DefaultHttpClient;
 
 public class HttpJsonClient {
-
+/*
 	public String getHttpsPOSTAJAX(String getURL, String getPOSTParameters) {
 
 		// get Impersonation ID
@@ -25,8 +24,7 @@ public class HttpJsonClient {
 			final String url = getURL;
 			HttpPost httpPost = new HttpPost(url);
 			if (getPOSTParameters.length()>1){
-				Log.v("HttpClient2", "application/json,text/plain,*/*  "+getPOSTParameters);
-				httpPost.addHeader("Accept", "application/json,text/plain,*/*");
+				httpPost.addHeader("Accept", "application/json,text/plain,* /*");
 				httpPost.addHeader("Content-Type", "application/json;charset=UTF-8");
 				httpPost.addHeader("Referer", "https://iself.tele2.kz/login");
 				httpPost.addHeader("Accept-Encoding", "gzip, deflate");
@@ -43,7 +41,7 @@ public class HttpJsonClient {
 			} else {
 				Log.v("HttpClient2", "text/html,application/xhtml+xml");
 				httpPost.addHeader("Accept",
-						"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
+						"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,* /*;q=0.8");
 				httpPost.addHeader("Accept-Encoding", "deflate");
 				httpPost.addHeader("Accept-Language",
 						"ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4");
@@ -98,7 +96,7 @@ public class HttpJsonClient {
 					.openConnection();
 
 			urlConn.setRequestProperty("Accept",
-					"application/json,text/plain,*/*");
+					"application/json,text/plain,* /*");
 			urlConn.setRequestProperty("Accept-Language", "en-US,en;q=0.8");
 			urlConn.setRequestProperty("Connection", "keep-alive");
 			urlConn.setRequestProperty("Content-Type",
@@ -158,7 +156,7 @@ public class HttpJsonClient {
 			 * msCookieManager.getCookieStore().getCookies()));
 			 * //connection.setRequestProperty("Cookie", //TextUtils.join(",",
 			 * msCookieManager.getCookieStore().getCookies())); }
-			 */
+			 * /
 			// Disconnect the connection
 			urlConn.disconnect();
 
@@ -183,7 +181,7 @@ public class HttpJsonClient {
 		 * "no-cache"); con.setRequestProperty( "User-Agent",
 		 * "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36"
 		 * );
-		 */
+		 * /
 	}
 
 	public String getData(String l_url) {
@@ -227,4 +225,5 @@ public class HttpJsonClient {
 		}
 		return null;
 	}
+	*/
 }
