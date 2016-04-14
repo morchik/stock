@@ -8,8 +8,44 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 public class HttpClient {
+
+	private static void trustAllHosts() {
+		// Create a trust manager that does not validate certificate chains
+		TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+			public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+				return new java.security.cert.X509Certificate[] {};
+			}
+
+			public void checkClientTrusted(X509Certificate[] chain,
+					String authType) throws CertificateException {
+			}
+
+			public void checkServerTrusted(X509Certificate[] chain,
+					String authType) throws CertificateException {
+			}
+		} };
+
+		// Install the all-trusting trust manager
+		try {
+			SSLContext sc = SSLContext.getInstance("TLS");
+			sc.init(null, trustAllCerts, new java.security.SecureRandom());
+			HttpsURLConnection
+					.setDefaultSSLSocketFactory(sc.getSocketFactory());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	// imitate chrome
 	public void setRequestProperty(HttpURLConnection con) {
@@ -112,7 +148,7 @@ public class HttpClient {
 			writeRequest.close();
 
 			// To get the Response Codes
-			int responseCode = urlConn.getResponseCode();
+			//int responseCode = urlConn.getResponseCode();
 
 			// parse the response
 			StringBuilder builder = new StringBuilder();
@@ -171,15 +207,30 @@ public class HttpClient {
 		 */
 	}
 
+	private static final HostnameVerifier DO_NOT_VERIFY = new HostnameVerifier() {
+		public boolean verify(String hostname, SSLSession session) {
+			return true;
+		}
+	};
+
 	public String getData_Post(String l_url, String getPOSTParameters) {
 		HttpURLConnection con = null;
 		InputStream is = null;
 
 		try {
-			con = (HttpURLConnection) (new URL(l_url)).openConnection();
-			//con.setRequestMethod("GET");
+			URL url = new URL(l_url);
 
-			//setRequestProperty(con);
+			URL testUrlHttps = new URL(l_url);
+			if (testUrlHttps.getProtocol().toLowerCase().equals("https")) {
+				trustAllHosts();
+				HttpsURLConnection https = (HttpsURLConnection) url
+						.openConnection();
+				https.setHostnameVerifier(DO_NOT_VERIFY);
+				con = https;
+				//System.out.println("https block !!!!");
+			} else {
+				con = (HttpURLConnection) url.openConnection();
+			}
 			con.setDoInput(true);
 			con.setDoOutput(false);
 			con.setConnectTimeout(60000);
@@ -187,7 +238,7 @@ public class HttpClient {
 			con.setRequestProperty("Content-Length",
 					String.valueOf(getPOSTParameters.getBytes().length));
 			con.setRequestProperty("X-Requested-With", "XMLHttpRequest");
-
+			//System.out.println("con= "+con);
 			// send the POSt Request
 			con.setDoOutput(true);
 			con.setDoInput(true);
@@ -197,17 +248,14 @@ public class HttpClient {
 			writeRequest.flush();
 			writeRequest.close();
 
-			//con.connect();
-			int stt = con.getResponseCode();
-			System.out.println("HttpClient.getData_Post html getResponseCode " + stt + " " + l_url);
+			//int stt = con.getResponseCode();
+			//System.out.println("HttpClient.getData_Post html getResponseCode "+ stt + " " + l_url);
 			StringBuffer buffer = new StringBuffer();
 			is = con.getInputStream();
-			BufferedReader br = new BufferedReader(new InputStreamReader(is));
+			BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 			String line = null;
 			while ((line = br.readLine()) != null) {
 				buffer.append(line + "\r\n");
-				// if (line.indexOf("500") >= 1)
-					// Log.i("HttpClient", line);
 			}
 			is.close();
 			con.disconnect();
@@ -223,6 +271,7 @@ public class HttpClient {
 				con.disconnect();
 			} catch (Throwable t) {
 			}
+			//System.out.println("getData_Post finish for  "+l_url);
 		}
 		return null;
 	}
