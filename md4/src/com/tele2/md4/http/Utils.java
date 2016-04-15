@@ -19,7 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.example.md4.MainActivity;
-import com.tele2.md4.R;
+import ru.yandex.mAng.R;
 
 import android.app.Activity;
 import android.app.ActivityManager;

@@ -1,17 +1,14 @@
 package com.example.md4;
 
-import com.tele2.md4.R;
+import ru.yandex.mAng.R;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Toast;
+
 
 @SuppressWarnings("deprecation")
 public class SubActivity extends ActionBarActivity {
@@ -29,7 +26,7 @@ public class SubActivity extends ActionBarActivity {
 		setSupportActionBar(toolbar);
 		webView = (WebView) findViewById(R.id.webView);
 		webView.getSettings().setBuiltInZoomControls(true);
-		webView.getSettings().setDisplayZoomControls(false);
+		webView.getSettings().setDisplayZoomControls(true);
 		/*
 		final Activity activity = this;
 		webView.setWebChromeClient(new WebChromeClient() {

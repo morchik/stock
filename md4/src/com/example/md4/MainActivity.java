@@ -40,7 +40,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.ktkt.http.clnt.HttpClient;
 import com.tele2.md4.NavigationDrawerFragment;
-import com.tele2.md4.R;
+import ru.yandex.mAng.R;
 
 @SuppressWarnings("deprecation")
 public class MainActivity extends ActionBarActivity implements
@@ -55,7 +55,7 @@ public class MainActivity extends ActionBarActivity implements
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Log.v("MainActivity", " MainActivity onCreate 111 ");
+		Log.v("MainActivity", " MainActivity onCreate start ");
 		String myVersion = android.os.Build.VERSION.RELEASE; // e.g. myVersion := "1.6"
 		int sdkVersion = android.os.Build.VERSION.SDK_INT; // e.g. sdkVersion := 8; 
 		System.out.println(myVersion+" "+sdkVersion);
@@ -200,6 +200,7 @@ public class MainActivity extends ActionBarActivity implements
 		*/
 		CookieManager cookieManager = new CookieManager();
 		CookieHandler.setDefault(cookieManager);
+		System.out.println(cookieManager.getCookieStore().getCookies().toString());
 		new loginTask().execute(url, "version=1");	
 	}
 
@@ -262,11 +263,13 @@ public class MainActivity extends ActionBarActivity implements
 			super.onPostExecute(result);
 			Log.v("loginTask", " onPostExecute -> loginTask "+result);
 			
-			if (result != null)
-				utils.ToastS("error: "+result.substring(0, Math.min(100, result.length())));
+			//if (result != null)	utils.ToastS(result.substring(0, Math.min(100, result.length())));
 			utils.setPreference( "result", result );
 			startActivity(new Intent(getApplicationContext(), SubActivity.class));
 			swipeLayout.setRefreshing(false);
+			
+			System.out.println(((CookieManager)CookieHandler.getDefault()).getCookieStore().getCookies().toString());
+		
 /*
 			if (result != null && result.length() > 100) {
 		        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

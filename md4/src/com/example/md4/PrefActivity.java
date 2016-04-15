@@ -1,6 +1,6 @@
 package com.example.md4;
 
-import com.tele2.md4.R;
+import ru.yandex.mAng.R;
 
 import android.app.Activity;
 import android.content.res.AssetManager;
