@@ -6,7 +6,6 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/appcompat_v7"/>
-	<classpathentry exported="true" kind="lib" path="libs/ksoap2-android-assembly-3.2.0-jar-with-dependencies.jar"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/lib"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

@@ -97,6 +97,19 @@ public class Utils extends Application {
 	}
 
 	/**
+	 * @param message
+	 *            Pass message to show user shortly and easy way for long time
+	 * @return It will return long toast message whatever you pass in your
+	 *         application
+	 */
+	public void ToastS(String message) {
+		final String onTimeMsg = message;
+		Toast toast = Toast.makeText(context, onTimeMsg, Toast.LENGTH_LONG); 
+		toast.show(); 
+	}
+
+			
+	/**
 	 * @param buttonName
 	 *            set yes no or cancel
 	 * @param message

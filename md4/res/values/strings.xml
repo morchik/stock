@@ -3,15 +3,18 @@
 
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
-    <string name="title_activity_main">SMS Tele2.kz</string>
+    <string name="title_activity_main">mAng Login</string>
+    <string name="title_activity_sub">mAng Show</string>    
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_test">Settings</string>
     <string name="action_holo">Holo</string>
     <string name="action_dark">Dark</string>
     <string name="action_light">Light</string>
-    <string name="action_send">Send</string>
+    <string name="action_send">View Old</string>
+    <string name="action_back">Back</string>
     <string name="action_check">Holo</string>
-    <string name="app_name">md 4 Tele2.kz</string>
+    <string name="app_name">mAng</string>
     <string name="dummy_button">Send Sms</string>
     <string name="settings">Settings</string>
     <string name="dummy_content">Hi</string>
@@ -19,6 +22,11 @@
     <string name="text_message">Text SMS message:</string>
     <string name="text_hint_number">7071234567</string>
     <string name="text_status">Your number:</string>
+    <string name="text_login">Login:</string>
+    <string name="text_secret">Secret code:</string>
+    <string name="text_pin">Pin:</string>
+    <string name="text_confirm">Confirm</string>
+    <string name="text_browser">In Browser</string>
     <string name="t_your_phone">Your phone number tele2.kz</string>
     <string name="t_your_pass">Password from private cabinet tele2.kz</string>
     <string name="t_send_phone">Default phone number to send SMS tele2.kz</string>

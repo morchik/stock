@@ -28,5 +28,9 @@
         android:orderInCategory="400"
         android:title="@string/action_settings"
         app:showAsAction="ifRoom"/>
-
+    <item
+        android:id="@+id/action_test"
+        android:orderInCategory="400"
+        android:title="@string/action_test"
+        app:showAsAction="ifRoom"/>
 </menu>

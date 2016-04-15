@@ -19,75 +19,121 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:keepScreenOn="true" >
+            android:layout_height="match_parent" >
 
-            <LinearLayout
-                android:id="@+id/fullscreen_content"
+            <android.support.v4.widget.SwipeRefreshLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/swipe_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:keepScreenOn="true"
-                android:orientation="vertical" >
+                android:layout_margin="4dp" >
 
-                <TextView
+                <LinearLayout
+                    android:id="@+id/fullscreen_content"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:keepScreenOn="true"
-                    android:onClick="click"
-                    android:text="@string/text_message"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
 
-                <EditText
-                    android:id="@+id/edMessage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/dummy_content"
-                    android:inputType="textMultiLine"
-                    android:keepScreenOn="true"
-                    android:maxLength="140"
-                    android:maxLines="6"
-                    android:minLines="2"
-                    android:scrollbars="vertical"
-                    android:textSize="18sp" >
+                    <LinearLayout
+                        android:id="@+id/login_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
 
-                    <requestFocus />
-                </EditText>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="5"
+                            android:text="@string/text_login"
+                            android:textColor="@color/primaryColor"
+                            android:textSize="16sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:keepScreenOn="true"
-                    android:text="@string/text_number"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="14sp" />
+                        <EditText
+                            android:id="@+id/edLogin"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="15"
+                            android:maxLength="20"
+                            android:textSize="16sp" >
+                        </EditText>
+                    </LinearLayout>
 
-                <EditText
-                    android:id="@+id/edNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/text_hint_number"
-                    android:inputType="numberSigned"
-                    android:keepScreenOn="true"
-                    android:maxLength="10"
-                    android:textSize="18sp" >
-                </EditText>
+                    <LinearLayout
+                        android:id="@+id/secret_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
 
-                <EditText
-                    android:id="@+id/tvDebug"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:hint="@string/text_hint_number"
-                    android:inputType="textMultiLine"
-                    android:maxLines="16"
-                    android:minLines="6"
-                    android:scrollbars="vertical"
-                    android:textIsSelectable="true"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="5"
+                            android:text="@string/text_secret"
+                            android:textColor="@color/primaryColor"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/edSecret"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="15"
+                            android:inputType="textPassword"
+                            android:maxLength="16"
+                            android:textSize="16sp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/pin_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="5"
+                            android:text="@string/text_pin"
+                            android:textColor="@color/primaryColor"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/edPin"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="15"
+                            android:inputType="numberPassword"
+                            android:maxLength="4"
+                            android:textSize="16sp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btn_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:id="@+id/btnBrowser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="15"
+                            android:onClick="click_browser"
+                            android:text="@string/text_browser" >
+                        </Button>
+
+                        <Button
+                            android:id="@+id/btnConfirm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="15"
+                            android:onClick="click_confirm"
+                            android:text="@string/text_confirm" >
+                        </Button>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v4.widget.SwipeRefreshLayout>
         </FrameLayout>
 
         <fragment
@@ -98,7 +144,6 @@
             android:layout_gravity="start"
             app:layout="@layout/fragment_navigation_drawer" >
         </fragment>
-
     </android.support.v4.widget.DrawerLayout>
 
 </LinearLayout>
