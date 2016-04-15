@@ -262,6 +262,7 @@ public class HttpClient {
 			return buffer.toString();
 		} catch (Throwable t) {
 			t.printStackTrace();
+			return t.toString();
 		} finally {
 			try {
 				is.close();
@@ -273,7 +274,6 @@ public class HttpClient {
 			}
 			//System.out.println("getData_Post finish for  "+l_url);
 		}
-		return null;
 	}
 
 }
