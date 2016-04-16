@@ -131,6 +131,15 @@
                             android:onClick="click_confirm"
                             android:text="@string/text_confirm" >
                         </Button>
+
+                        <Button
+                            android:id="@+id/btnAndroid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="15"
+                            android:onClick="click_android"
+                            android:text="@string/text_android" >
+                        </Button>
                     </LinearLayout>
                 </LinearLayout>
             </android.support.v4.widget.SwipeRefreshLayout>

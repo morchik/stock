@@ -5,6 +5,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.CookieHandler;
+import java.net.CookieManager;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -75,6 +77,11 @@ public class HttpClient {
 			con.setDoOutput(false);
 			con.setConnectTimeout(60000);
 			con.connect();
+			
+			CookieManagerYa cm = new CookieManagerYa();
+			cm.storeCookies(con);
+			System.out.println("CookieManagerYa "+cm);
+			
 			int stt = con.getResponseCode();
 			// Log.v("HttpClient", "html getResponseCode " + stt+" "+l_url);
 			StringBuffer buffer = new StringBuffer();
@@ -213,7 +220,7 @@ public class HttpClient {
 		}
 	};
 
-	public String getData_Post(String l_url, String getPOSTParameters) {
+	public String getData_Post(String l_url, String getPOSTParameters, boolean fRedirect) {
 		HttpURLConnection con = null;
 		InputStream is = null;
 
@@ -231,25 +238,34 @@ public class HttpClient {
 			} else {
 				con = (HttpURLConnection) url.openConnection();
 			}
+			con.setInstanceFollowRedirects(fRedirect);  //you still need to handle redirect manully.
+			
 			con.setDoInput(true);
-			con.setDoOutput(false);
+			con.setDoOutput(true);
 			con.setConnectTimeout(60000);
 			con.setRequestMethod("POST");
 			con.setRequestProperty("Content-Length",
 					String.valueOf(getPOSTParameters.getBytes().length));
 			con.setRequestProperty("X-Requested-With", "XMLHttpRequest");
-			//System.out.println("con= "+con);
+			System.out.println("con= "+con);
 			// send the POSt Request
-			con.setDoOutput(true);
-			con.setDoInput(true);
+			//con.setDoOutput(true);
+			//con.setDoInput(true);
 			DataOutputStream writeRequest = new DataOutputStream(
 					con.getOutputStream());
 			writeRequest.write(getPOSTParameters.getBytes("UTF-8"));
 			writeRequest.flush();
 			writeRequest.close();
 
-			//int stt = con.getResponseCode();
-			//System.out.println("HttpClient.getData_Post html getResponseCode "+ stt + " " + l_url);
+				/*
+			CookieManagerYa cm = new CookieManagerYa();
+			cm.storeCookies(con);
+			System.out.println("CookieManagerYa "+cm);
+			
+			CookieManager cm = (CookieManager)CookieHandler.getDefault();
+			System.out.println("CookieManager "+cm);
+			System.out.println("CookieManager "+cm.getCookieStore().getCookies().toString());
+				 */
 			StringBuffer buffer = new StringBuffer();
 			is = con.getInputStream();
 			BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
@@ -258,6 +274,9 @@ public class HttpClient {
 				buffer.append(line + "\r\n");
 			}
 			is.close();
+			//int stt = con.getResponseCode();
+			//System.out.println("HttpClient.getData_Post html getResponseCode "+ stt + " " + l_url);
+
 			con.disconnect();
 			return buffer.toString();
 		} catch (Throwable t) {

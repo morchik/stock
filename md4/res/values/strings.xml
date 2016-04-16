@@ -26,6 +26,7 @@
     <string name="text_secret">Secret code:</string>
     <string name="text_pin">Pin:</string>
     <string name="text_confirm">Confirm</string>
+    <string name="text_android">Android</string>
     <string name="text_browser">In Browser</string>
     <string name="t_your_phone">Your phone number tele2.kz</string>
     <string name="t_your_pass">Password from private cabinet tele2.kz</string>
