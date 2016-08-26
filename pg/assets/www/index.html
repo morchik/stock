@@ -1,7 +1,10 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Tumblr Reader</title>
+		<meta charset="utf-8" />
+		<meta name="robots" content="index, follow" />
+
+		<title>Отправить SMS</title>
         <!-- Стили jQuery Mobile и наши  -->
         <link rel="stylesheet" href="libs/jquery.mobile.css" />
         <link rel="stylesheet" href="css/main.css" />
@@ -22,15 +25,28 @@
         <div data-role="page" id="dashboard">
             <div data-role="header" data-position="fixed">
                 <!-- По клику откроет страницу options -->
-                <a href="#options" data-icon="gear">Options</a>
-                <h1>Dashboard</h1>
+                <a href="#options" data-icon="gear">Настроики</a>
+                <h1>SMS tele2</h1>
             </div>
 
             <div data-role="content">
-                <div class="ui-grid-b" id="dashboard-list">
-                <!-- Сюда будут отрисовываться мелкие картинки -->
-                </div>
+				<label for="get_left"> SMS осталось: <span id="get_left">?</span>
+				</label>
+				<a data-role="button" data-mini="true" id="btn_refresh">Обновить</a>
+				
+				<label for="to_phonenum"> Номер телефона Tele2</label>
+                    <input name="to_phonenum" type="text" maxlength="10" id="to_phonenum" tabindex="1" name="to_phonenum" placeholder="7x71234567" />
+					
+				<label for="sms_text"> Текст </label>
+                <textarea name="sms_text" cols="40" rows="10" maxlength="150" id="sms_text" placeholder="hi" ></textarea>	
+				<br/>
+				<span id="error"></span>
+				<span id="results"></span>
+				<br/>  
+				<!-- По клику отправить -->
+                <a data-role="button" id="btn_send">Отправить</a>	
             </div>
+			
         </div>
 
         <!-- Большая картинка -->
@@ -53,17 +69,36 @@
         <!-- Настройки -->
         <div data-role="page" id="options">
             <div data-role="header">
-                <h1>Options</h1>
+                <h1>Настроики</h1>
             </div>
 
             <div data-role="content">
-                <div data-role="fieldcontain">
-                    <label for="name">Tumblr user:</label>
-                    <!-- Имя Tumblr пользователя -->
-                    <input type="text" name="name" id="options-name" value="" />
-                </div>
-                <!-- По клику сохранится имя и откроется "Список мелких картинок" -->
-                <a data-role="button">Ok</a>
+				<label style="padding-left:15px;">Пожалуйста, авторизируйтесь</label>
+				<div data-role="fieldcontain">
+                    
+                    <label for="phonenumber"> Введите ваш номер телефона Tele2</label>
+                    <input name="phonenumber" type="text" maxlength="10" id="options-name" tabindex="1" name="phonenumber" placeholder="7x71234567" />
+
+					<label for="password">Введите пароль от <a href="https://iself.tele2.kz/login" target="_blank">Личного кабинета</a></label>
+					
+					<input type="password" name="password" value="" id="options-pass" class="password required" />
+					
+					<div style="padding-left:55px;">
+                        <div id="loginError" style="color: red;">
+                            Не верный пароль или логин
+							<div id="loginErrorText" style="color: blue;">
+							
+							</div>
+                        </div>
+                        <div id="loggingIn">
+                            Пожалуйста подождите, идет проверка авторизации
+                        </div>
+                        
+                    </div>
+					<br/>
+				</div>
+                <!-- По клику сохранится -->
+                <a data-role="button">Войти</a>
             </div>
 	    </div>
 

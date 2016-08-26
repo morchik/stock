@@ -1,3 +1,4 @@
+console.log("jQuery.js");
 /*!
  * jQuery JavaScript Library v1.5.2
  * http://jquery.com/
