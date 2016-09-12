@@ -1,0 +1,149 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.test.LoginActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:keepScreenOn="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/label_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="18dp"
+            android:gravity="center"
+            android:keepScreenOn="true"
+            android:text="@string/text_welcome"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/label_your_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:keepScreenOn="true"
+            android:text="@string/label_your_phone"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edNumb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_shape_edt"
+            android:hint="@string/phone_pattern"
+            android:inputType="phone"
+            android:keepScreenOn="true"
+            android:maxLength="10"
+            android:padding="10dp"
+            android:textSize="18sp" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/label_your_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:keepScreenOn="true"
+            android:text="@string/label_your_pass"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/pass_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/edPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:background="@drawable/round_shape_edt"
+                android:hint="@string/pass_pattern"
+                android:inputType="numberPassword"
+                android:keepScreenOn="true"
+                android:maxLength="20"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:visibility="gone" >
+
+                <requestFocus />
+            </EditText>
+
+            <ImageButton
+                android:id="@+id/btnViewPass"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/img_view_pass"
+                android:onClick="onClickViewPass"
+                android:src="@android:drawable/ic_menu_view"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/onSearchPass"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/img_view_pass"
+                android:onClick="onClickSearchPass"
+                android:src="@android:drawable/ic_search_category_default"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvWait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:keepScreenOn="false"
+            android:text="@string/label_login_wait"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvErrorLogIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:keepScreenOn="false"
+            android:text="@string/label_login_error"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_enter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_shape_btn"
+            android:onClick="click"
+            android:padding="10dp"
+            android:text="@string/text_btn_enter"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvLastLogIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:keepScreenOn="false"
+            android:text="@string/label_last_login"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="16sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</ScrollView>

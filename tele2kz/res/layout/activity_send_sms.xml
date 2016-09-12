@@ -1,0 +1,138 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.test.SendSmsActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:keepScreenOn="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvSmsLeft"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:keepScreenOn="true"
+            android:text="@string/label_sms_left"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/label_sender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:keepScreenOn="true"
+            android:text="@string/label_sender"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_shape_edt"
+            android:hint="@string/phone_pattern"
+            android:inputType="phone"
+            android:keepScreenOn="true"
+            android:maxLength="10"
+            android:padding="6dp"
+            android:textSize="18sp" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/label_your_sms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:keepScreenOn="true"
+            android:text="@string/label_your_sms"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_shape_edt"
+            android:hint="@string/dummy_content"
+            android:keepScreenOn="true"
+            android:maxLength="160"
+            android:padding="6dp"
+            android:textSize="18sp" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/tvCharLeft"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:keepScreenOn="false"
+            android:text="@string/label_chars_left"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_shape_btn"
+            android:onClick="click"
+            android:padding="6dp"
+            android:text="@string/text_btn_send"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvWaitSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:keepScreenOn="false"
+            android:text="@string/label_send_wait"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvErrorSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:keepScreenOn="false"
+            android:text="@string/label_send_error"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvLastSent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:keepScreenOn="false"
+            android:text="@string/label_last_sent"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:background="@drawable/round_shape_btn"
+            android:onClick="click_logout"
+            android:padding="6dp"
+            android:text="@string/text_btn_logout"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</ScrollView>

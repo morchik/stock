@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="text_welcome">Пожалуйста, авторизируйтесь</string>
+	<string name="label_your_phone">Введите ваш номер телефона Tele2.kz (без 8-ки)</string>
+	<string name="label_your_pass">Введите пароль от Личного кабинета </string>
+	<string name="phone_pattern">7x71234567</string>
+	<string name="pass_pattern">1234</string>
+	<string name="text_btn_enter">Войти</string>
+	<string name="label_last_login">Заходили: </string>
+	<string name="label_login_wait">Пожалуйста подождите, идет проверка авторизации &#8230; </string>
+	<string name="label_login_error">Не верный пароль или логин </string>
+			
+	<string name="label_sms_left">Количество оставшихся SMS: </string>
+	<string name="label_sender">Введите номер мобильного телефона абонента Tele2.kz </string>
+	<string name="label_your_sms">Наберите ваше сообщение </string>
+	<string name="label_chars_left">Осталось символов: </string>
+	<string name="text_btn_send">Отправить</string>
+	<string name="text_btn_logout">Выйти</string>
+	<string name="label_send_error">Ошибка при отправке смс </string>
+	<string name="label_send_wait">Пожалуйста подождите, смс отправляется </string>
+	<string name="label_last_sent">Ваше сообщение отправлено </string>
+	
+	<string name="app_name">SMS tele2.kz</string>
+    <string name="dummy_button">Отправить Sms</string>
+    <string name="settings">Настройки</string>
+    <string name="dummy_content">Привет</string>
+    <string name="text_number">Номер телефона:</string>
+    <string name="text_message">Текст SMS сообщения:</string>
+    <string name="text_hint_number">7071234567</string>
+    <string name="text_status">Ваш номер:</string>
+    <string name="t_your_phone">Ваш номер телефона tele2.kz</string>
+    <string name="t_your_pass">Пароль от личного кабинета tele2.kz</string>
+    <string name="t_send_phone">Номер телефона куда отправлять SMS по умолчанию tele2.kz</string>
+    <string name="t_debug_mode">Режим отладочной печати </string>
+    <string name="text_err_login">Ошибка отпраки проверьте ваш номер,пароль и интернет</string>
+    <string name="text_suc_send">Ваше смс отправлено</string>
+    <string name="text_pass_corct">Ваш номер и пароль подошли</string>
+    <string name="text_sms_left"> Осталось смс </string>
+    <string name="text_err_online">Нет подключения к интернету</string>
+    <string name="text_err_num10">Номера телефонов должны быть 10 цифр </string>
+    <string name="text_err_sett">Пожалуйста сначала в настройках установите ваш номер телефона и пароль от личного кабинета tele2.kz</string>
+    <string name="text_err_msg0">Текст сообщения не может быть пустым</string>
+    <string name="text_start_send">пытаемся отправить смс</string>
+    <string name="text_finish_send">результат попытки отправки смс</string>
+    
+</resources>

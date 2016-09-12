@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="text_welcome">Please do authorization </string>
+	<string name="label_your_phone">Enter your phone number Tele2.k z</string>
+	<string name="label_your_pass">Enter your password for  Tele2.kz </string>
+	<string name="phone_pattern">7x71234567</string>
+	<string name="pass_pattern">1234</string>
+	<string name="text_btn_enter">Log In</string>
+	<string name="label_last_login">Last enter:</string>
+	<string name="label_login_wait">Please wait, network connection &#8230;</string>
+	<string name="label_login_error">Wrong phone or password </string>
+	
+	<string name="label_sms_left">SMS left: </string>
+	<string name="label_sender">Enter mobile phone subscriber Tele2.kz </string>
+	<string name="label_your_sms">Type your text message </string>
+	<string name="label_chars_left">Chars left: </string>
+	<string name="text_btn_send">Send</string>
+	<string name="text_btn_logout">Exit</string>
+	<string name="label_send_error">Error sending SMS </string>
+	<string name="label_send_wait">Please wait, SMS is sending </string>
+	<string name="label_last_sent">Your SMS sent </string>
+	<string name="img_view_pass">sms?</string>
+		
+    <string name="app_name">SMS tele2.kz</string>
+    <string name="dummy_button">Send Sms</string>
+    <string name="settings">Settings</string>
+    <string name="dummy_content">Hi</string>
+    <string name="text_number">Phone number:</string>
+    <string name="text_message">Text SMS message:</string>
+    <string name="text_hint_number">7071234567</string>
+    <string name="text_status">Your number:</string>
+    <string name="t_your_phone">Your phone number tele2.kz</string>
+    <string name="t_your_pass">Password from private cabinet tele2.kz</string>
+    <string name="t_send_phone">Default phone number to send SMS tele2.kz</string>
+    <string name="t_debug_mode">Debug mode print </string>
+    <string name="text_err_login">Error login pls, check number,password and internet</string>
+    <string name="text_suc_send">Your sms sended</string>
+    <string name="text_pass_corct">Your number and password correct</string>
+    <string name="text_sms_left"> SMS left </string>
+    <string name="text_err_online"> Not connected to the internet </string>
+    <string name="text_err_num10"> Phone number have to be 10 digits </string>
+    <string name="text_err_sett">Please, first in settings set your phone and password from tele2.kz private cabinet</string>
+    <string name="text_err_msg0">Message text cannot be empty</string>
+    <string name="text_start_send">trying send sms</string>
+    <string name="text_finish_send">result of sending sms</string>
+    <string name="pub_key">30820122300d06092a864886f70d01010105000382010f003082010a02820101009fde491de233924fb1924d070e20468a36ca5f9a7a022a6e18bec96cdcedf4e7a78e0a142b27a4a3b1a995cc01bf6479ebbafb768a2afb7c10e94519d17eeaa08cc599b3fb35052b493520ff0ccb65bdeed6153fd72b42b60e4c6c5ff815c78a6adc73535c918f0e7e5f17f7c1454ca93671099ab682299cb741e3616ce7c453cf79262ed84a6f1eaf4965fe16b3f51fbe93bf4078a63cd20cf7765bfe0b5d5755ff1a3ea6007f652d764a9747ea872617cb332c4c137f61d616c2a66d2d1e1cc4f1c75320e5ead7aa2430bd938917b04293df97efe2a7737472d377becf89d7a5c8d8378b0201ee9b73241ded29d0aded21c5bdec45a2179a0d28b29c039b4f0203010001</string>
+	<string name="text_sms_q">sms?</string>
+
+</resources>
