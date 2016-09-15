@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="text_welcome">Please do authorization </string>
+	<string name="text_register">Please do registration, enter captcha</string>
+	<string name="text_btn_reg">Send SMS with password</string>
+	<string name="label_reg_wait">Please wait, network connection for capture &#8230;</string>
+	<string name="captcha_pattern">123456</string>
+	<string name="label_net_error">Network error or wrong capture error </string>
+	
+				
 	<string name="label_your_phone">Enter your phone number Tele2.k z</string>
 	<string name="label_your_pass">Enter your password for  Tele2.kz </string>
 	<string name="phone_pattern">7x71234567</string>

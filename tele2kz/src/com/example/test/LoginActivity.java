@@ -136,6 +136,12 @@ public class LoginActivity extends Activity {
 		onSearchPass.setEnabled(true);
 	}
 
+	public void onClickRegister(View v) {
+		//onSearchPass.setEnabled(false);
+		startActivity(new Intent(getBaseContext(), RegActivity.class));
+		//onSearchPass.setEnabled(true);
+	}
+	
 	private class synLogIn extends AsyncTask<Void, Void, String> {
 
 		@Override

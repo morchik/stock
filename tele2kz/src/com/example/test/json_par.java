@@ -15,10 +15,24 @@ public class json_par {
 		return obj.toString();
 		} catch (JSONException e) {
 			android.util.Log.e("json_par", e.toString() + " message=" + message);
+			e.printStackTrace();
 			return "error parse "+e.toString();
 		}
 	}
-	
+
+	public static String create_token(String code) {
+		try {
+			JSONObject obj = new JSONObject();
+			obj.put("same_origin_token", code);
+			Log.v("json_par", "create_token result " + obj.toString());
+			return obj.toString();
+		} catch (JSONException e) {
+			android.util.Log.e("json_par", e.toString() + " code=" + code);
+			e.printStackTrace();
+			return "error parse "+e.toString();
+		}
+	}
+
 	public static String create_auth(String number, String password) {
 		try {
 			JSONObject obj = new JSONObject();
@@ -29,6 +43,24 @@ public class json_par {
 		} catch (JSONException e) {
 			android.util.Log.e("json_par", e.toString() + " number=" + number
 					+" "+password);
+			return "error parse "+e.toString();
+		}
+	}
+	
+	// {"msisdn":"7071355145","type":"sms"
+	//	,"same_origin_token":"5496131068d7dcd774aff994421e10c222d65447","answer":"780054"}
+	public static String create_AuthReg(String msisdn, String token, String answer) {
+		try {
+			JSONObject obj = new JSONObject();
+			obj.put("answer", answer);
+			obj.put("same_origin_token", token);
+			obj.put("type", "sms");
+			obj.put("msisdn", msisdn);
+			Log.v("json_par", "create_AuthReg result " + obj.toString());
+		return obj.toString();
+		} catch (JSONException e) {
+			android.util.Log.e("json_par", e.toString() + " number=" + msisdn
+					+" answer="+answer);
 			return "error parse "+e.toString();
 		}
 	}
@@ -123,6 +155,30 @@ public class json_par {
 		}
 	}
 
+	public static String get_captcha(String data) {
+		try {
+			JSONObject jObj = new JSONObject(data);
+			if (!jObj.has("capcha64"))
+				return "error no capcha64";
+			else {
+				String amn = jObj.getString("capcha64");
+				if (!amn.isEmpty()) {
+					return amn;
+				} else {
+					return "error empty";
+				}
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+			android.util.Log.e("json_par", e.toString() + " " + data);
+			return "error parse "+e.toString();
+		} catch (Exception e) {
+			e.printStackTrace();
+			android.util.Log.e("json_par error ", e.toString() + " " + data);
+			return "error "+e.toString();
+		}
+	}
+
 	public static String get_token(String data) {
 		try {
 			int ind = data.indexOf("csrf_token");
@@ -130,7 +186,7 @@ public class json_par {
 				int st = data.indexOf("'", ind);
 				int en = data.indexOf("'", st+1);
 				if (st>0 && en>0 && st < en)
-					return data.substring(st, en);
+					return data.substring(st+1, en);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

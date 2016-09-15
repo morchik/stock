@@ -95,7 +95,15 @@
                 android:contentDescription="@string/img_view_pass"
                 android:onClick="onClickSearchPass"
                 android:src="@android:drawable/ic_search_category_default" />
-        </LinearLayout>
+           <ImageButton
+                android:id="@+id/onRegister"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/img_view_pass"
+                android:onClick="onClickRegister"
+                android:src="@android:drawable/ic_input_add" />
+       </LinearLayout>
 
         <TextView
             android:id="@+id/tvWait"

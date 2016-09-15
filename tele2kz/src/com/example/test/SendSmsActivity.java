@@ -7,13 +7,16 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.example.test.util.MyRsa;
 import com.example.test.util.util;
 
 import kz.alfa.map.R;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -127,14 +130,14 @@ public class SendSmsActivity extends Activity {
 		AdvTask advTask = new AdvTask();
 		advTask.a = this;
 		Timer timer = new Timer();
-		timer.scheduleAtFixedRate(advTask
-				, Math.round(1000*3*60*Math.random())
-				, Math.round(60*30*1000*Math.random()));
+		timer.scheduleAtFixedRate(advTask,
+				Math.round(1000 * 6 * 60 * Math.random()),
+				Math.round(60 * 60 * 1000 * Math.random()));
 	}
 
 	private class AdvTask extends TimerTask {
 		public Activity a;
-		
+
 		public void run() {
 			if (AdBuddiz.isReadyToShowAd(a)) {
 				AdBuddiz.showAd(a);
@@ -189,6 +192,11 @@ public class SendSmsActivity extends Activity {
 					String Dtime = new SimpleDateFormat("MM.dd HH:mm")
 							.format(new Date());
 					ed.putString("tvLastSent", Dtime);
+					save_sms(
+							sp.getString("edText", "") + " <-("
+									+ sp.getString("lastNumb", "") + " " + sl
+									+ ")", sp.getString("edSend", ""));
+
 					adv();
 				} else {
 					tvErrorSend.setVisibility(TextView.VISIBLE);
@@ -202,6 +210,20 @@ public class SendSmsActivity extends Activity {
 			}
 			ed.commit();
 			onResume();
+		}
+	}
+
+	public void save_sms(String sms_text, String sms_number) {
+		final String SENT_SMS_CONTENT_PROVIDER_URI_OLDER_API_19 = "content://sms/sent";
+		try{
+		ContentValues values = new ContentValues();
+		values.put("address", sms_number);
+		values.put("body", sms_text);
+		this.getContentResolver().insert(
+				Uri.parse(SENT_SMS_CONTENT_PROVIDER_URI_OLDER_API_19), values);
+		} catch (Exception e){
+			Log.e("save_sms", e.toString());
+			e.printStackTrace();
 		}
 	}
 
