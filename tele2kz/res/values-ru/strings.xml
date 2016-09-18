@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="text_welcome">Пожалуйста, авторизируйтесь</string>
+	<string name="text_register">Мой Tele2 — личный кабинет\nРегистрация</string>
+	<string name="text_btn_reg">ПОЛУЧИТЬ ПАРОЛЬ по СМС</string>
+	<string name="label_type_captcha">Введите текст, который Вы видите на картинке:</string>
+	<string name="label_reg_wait">Пожалуйста подождите, идет обработка, проверка или регистрация &#8230;</string>
+	<string name="captcha_pattern">123456</string>
+	<string name="label_net_error">Ошибка подклюсения или неправильной текст с картинки</string>
+	<string name="label_view_pass">Показать или скрыть пароль</string>
+	<string name="label_search_pass">Искать пароль во входящих СМС</string>
+	<string name="label_register">Регистрация в личном кабинете</string>
+	<string name="label_reg_sms_sent">СМС c паролем отпралено на ваш номер</string>
+	<string name="legal_info">О этой версии программы</string>
+	<string name="text_btn_update">ОБНОВИТЬ</string>	
+								
 	<string name="label_your_phone">Введите ваш номер телефона Tele2.kz (без 8-ки)</string>
 	<string name="label_your_pass">Введите пароль от Личного кабинета </string>
 	<string name="phone_pattern">7x71234567</string>

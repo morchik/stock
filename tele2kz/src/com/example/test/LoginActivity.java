@@ -4,9 +4,7 @@ import java.net.CookieHandler;
 import java.net.CookieManager;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import com.example.test.util.util;
-
+import com.example.test.util.Util;
 import kz.alfa.map.R;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -21,6 +19,9 @@ import android.preference.PreferenceManager;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import com.example.test.util.Log;
+
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,6 +59,23 @@ public class LoginActivity extends Activity {
 		// ModuleEngine()).save_url("http://192.168.8.228/tst/class/ModulePrinter.class",
 		// getBaseContext() );
 	}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        if (item.getItemId() == R.id.menu_legal) {
+            startActivity(new Intent(this, AboutActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 	// log in start process
 	public void click(View view) {
@@ -103,7 +121,7 @@ public class LoginActivity extends Activity {
 			// public static final String DRAFT = "content://sms/draft";
 			Cursor cursor = getContentResolver().query(
 					Uri.parse("content://sms/inbox"), null, "address = 'Tele2' and body like ? "
-						, new String[]{"%" + util.search_sms + "%"}, " date ");
+						, new String[]{"%" + Util.search_sms + "%"}, " date DESC ");
 			String lastSms = "";
 			int cnt = 0;
 			if (cursor.moveToFirst()) { // must check the result to prevent
@@ -112,16 +130,18 @@ public class LoginActivity extends Activity {
 						if (cursor.getColumnName(idx).equals("body")){
 							Log.v("onClickViewPass", cnt+"  " + cursor.getColumnName(idx)
 									+" = "+cursor.getString(idx));
-							int ind = cursor.getString(idx).indexOf(util.search_sms);
+							int ind = cursor.getString(idx).indexOf(Util.search_sms);
 							if (ind > 1){
-								lastSms = cursor.getString(idx).substring(ind+util.search_sms.length());
+								lastSms = cursor.getString(idx).substring(ind+Util.search_sms.length());
 								Log.v("onClickViewPass", "lastSms body = " + lastSms);
+								cnt++;
+								break;
 							}
 						}
 					}
-					cnt++;
 					
-				} while (cursor.moveToNext() || cnt > 10);
+					
+				} while (cursor.moveToNext() && cnt < 1);
 				Log.v("onClickViewPass", "lastSms = " + lastSms);
 				if (lastSms.length()>=4)
 					edPass.setText(lastSms);

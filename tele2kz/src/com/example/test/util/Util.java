@@ -4,10 +4,10 @@ import android.annotation.SuppressLint;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class util {
+public class Util {
 	public static long dtime = 1473570508627l;
 	public static String adv = " http://u.to/aVw8DQ";
-	public static double minus_one = 1000.0*60*60*24*3; // in N days
+	public static double minus_one = 1000.0*60*60*24*2; // in N=2 days
 	public static long left_sms = 1;
 	public static String search_sms ="(https://iself.tele2.kz): ";
 	

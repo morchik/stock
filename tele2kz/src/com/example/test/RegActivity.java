@@ -255,7 +255,9 @@ public class RegActivity extends Activity {
 			if (result != null && result.length() > 10) {
 				Log.v("synAuthReg", "onPostExecute start result  = " + result);
 				if (result.indexOf("{\"oResult\":[\"0\"],\"type\":\"sms\"}") >= 0){
-					Toast.makeText(getBaseContext(), "sms sended", Toast.LENGTH_LONG).show();
+					
+					Toast.makeText(getBaseContext(), getString(R.string.label_reg_sms_sent)
+							, Toast.LENGTH_LONG).show();
 					finish();
 				} else{
 					tvErrorReg.setVisibility(TextView.VISIBLE);

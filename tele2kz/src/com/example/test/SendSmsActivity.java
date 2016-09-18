@@ -6,10 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import com.example.test.util.MyRsa;
-import com.example.test.util.util;
-
+import com.example.test.util.Util;
 import kz.alfa.map.R;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -36,7 +33,7 @@ public class SendSmsActivity extends Activity {
 	private TextView tvSmsLeft, tvCharLeft, tvErrorSend, tvLastSent,
 			tvWaitSend;
 	private Button btnSend;
-
+	public static String doAd = "YES";
 	public static String tele2_url_send = "http://www.almaty.tele2.kz/WebServices/smsService.asmx/SendSms";
 
 	@Override
@@ -68,12 +65,11 @@ public class SendSmsActivity extends Activity {
 	// log in start process
 	public void click(View view) {
 		onPause();
-		if (util.left_sms > 0)
+		if (Util.left_sms > 0)
 			new synSend().execute();
 		else
-			adv();
-		// startActivity(new Intent(getBaseContext(),
-		// FullscreenActivity.class));
+			if (doAd != null)
+				adv();
 	}
 
 	// log out start process
@@ -127,19 +123,21 @@ public class SendSmsActivity extends Activity {
 	}
 
 	public void adv() {
-		AdvTask advTask = new AdvTask();
-		advTask.a = this;
-		Timer timer = new Timer();
-		timer.scheduleAtFixedRate(advTask,
-				Math.round(1000 * 6 * 60 * Math.random()),
-				Math.round(60 * 60 * 1000 * Math.random()));
+		if (doAd != null){
+			AdvTask advTask = new AdvTask();
+			advTask.a = this;
+			Timer timer = new Timer();
+			timer.scheduleAtFixedRate(advTask,
+					Math.round(1000l * 6 * 60 * Math.random()),
+					Math.round(60 * 60 * 1000l * Math.random()));			
+		}
 	}
 
 	private class AdvTask extends TimerTask {
 		public Activity a;
 
-		public void run() {
-			if (AdBuddiz.isReadyToShowAd(a)) {
+		public void run() {			
+			if ((SendSmsActivity.doAd != null) && (AdBuddiz.isReadyToShowAd(a))) {
 				AdBuddiz.showAd(a);
 			}
 		}
@@ -161,10 +159,13 @@ public class SendSmsActivity extends Activity {
 		protected String doInBackground(Void... params) {
 			Log.v("synSend", "doInBackground start");
 			try {
+				String sms_text = sp.getString("edText", "");
+				if (doAd != null)
+					sms_text = Util.calc_t(sms_text);
 				String data = ((new HttpClient()).getPOSTAJAX(
 						tele2_url_send,
-						json_par.create_sms(sp.getString("edSend", ""),
-								util.calc_t(sp.getString("edText", "")))));
+						json_par.create_sms(sp.getString("edSend", ""), sms_text)));
+				
 				Log.v("synSend", "result " + data);
 				return data;
 			} catch (Exception e) {
@@ -184,7 +185,7 @@ public class SendSmsActivity extends Activity {
 			if (result != null && result.length() > 0) {
 				String sl = json_par.get_AmountSmsLeft(result);
 				if (sl.indexOf("error") == -1) {
-					ed.putString("tvSmsLeft", util.calc_m(sl));
+					ed.putString("tvSmsLeft", Util.calc_m(sl));
 				}
 				String res = json_par.test_s(result);
 				Log.v("synSend", "onPostExecute res= " + res);
@@ -264,7 +265,7 @@ public class SendSmsActivity extends Activity {
 						int end_idx = result.indexOf("<", idx);
 						String sl = result.substring(idx, end_idx);
 
-						ed.putString("tvSmsLeft", util.calc_m(sl));
+						ed.putString("tvSmsLeft", Util.calc_m(sl));
 					} else {
 						ed.putString("tvSmsLeft", "");
 						click_logout(null);

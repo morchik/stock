@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class json_par {
+public class JsonPar {
 	public static String test_a(String data) {
 		try {
 			String msg;

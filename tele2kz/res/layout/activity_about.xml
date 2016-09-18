@@ -1,0 +1,59 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.test.LoginActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:keepScreenOn="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:keepScreenOn="true"
+            android:text="@string/legal_info"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_close"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_shape_btn"
+            android:onClick="click_close"
+            android:padding="10dp"
+            android:text="@string/text_btn_close"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_shape_btn"
+            android:onClick="click_update"
+            android:padding="10dp"
+            android:text="@string/text_btn_update"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_pro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_shape_btn"
+            android:onClick="click_close"
+            android:padding="10dp"
+            android:text="@string/text_btn_close"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</ScrollView>

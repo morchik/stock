@@ -14,7 +14,7 @@
         <LinearLayout
             android:id="@+id/register_content"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="50dp"
             android:orientation="horizontal" >
 
             <TextView
@@ -52,12 +52,12 @@
         <LinearLayout
             android:id="@+id/captcha_content"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="80dp"
             android:orientation="horizontal" >
 
             <WebView
                 android:id="@+id/webView"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1" >
@@ -74,6 +74,17 @@
             android:textColor="@android:color/holo_green_dark"
             android:textSize="14sp"
             android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_label_type_captcha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:keepScreenOn="false"
+            android:text="@string/label_type_captcha"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:visibility="visible" />
 
         <EditText
             android:id="@+id/edNumbCap"
