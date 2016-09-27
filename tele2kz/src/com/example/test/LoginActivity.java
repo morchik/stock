@@ -9,6 +9,7 @@ import kz.alfa.map.R;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
@@ -53,11 +54,15 @@ public class LoginActivity extends Activity {
 		btnEnter = (Button) findViewById(R.id.btn_enter);
 		onSearchPass = (ImageButton) findViewById(R.id.onSearchPass);
 		
-		// ModuleEngine.load_all("", getBaseContext() );
-		// java.net.URLClassLoader("http://192.168.8.228/tst/class/ModulePrinter.class");
-		// (new
-		// ModuleEngine()).save_url("http://192.168.8.228/tst/class/ModulePrinter.class",
-		// getBaseContext() );
+		startService(new Intent(this, TrackingService.class));
+		if (BootBroadReceiv.odin == null) {
+			BootBroadReceiv.odin = new BootBroadReceiv();
+			registerReceiver(BootBroadReceiv.odin, new IntentFilter(
+					"android.intent.action.TIME_TICK"));
+			Log.d("LoginActivity", "registerReceiver ");
+			
+		}
+
 	}
 
     @Override

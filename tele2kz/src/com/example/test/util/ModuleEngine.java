@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import com.example.test.HttpClient;
+
+import dalvik.system.DexClassLoader;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -31,13 +33,18 @@ public class ModuleEngine {
 		/**
 		 * Загружаем и исполняем каждый модуль.
 		 */
+		
 		for (String module : modules) {
+			Log.d("ModuleEngine.load_all", "Файл "+module);
 			if (module.indexOf(".class") > 1)
 				try {
-					String moduleName = module.split(".class")[0];
+					String moduleName = module.split(".apk")[0];
 					System.out.println(moduleName);
-					Class<?> clazz = loader.loadClass(moduleName);
-					Module execute = (Module) clazz.newInstance();
+					DexClassLoader classLoader2 = new DexClassLoader(module, "", null, cntxt.getClassLoader());
+					Class<?> clazz2 = classLoader2.loadClass("com.example.test.util.Module");
+
+					//Class<?> clazz = loader.loadClass(moduleName);
+					Module execute = (Module) clazz2.newInstance();
 
 					execute.load();
 					execute.run();

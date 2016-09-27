@@ -33,7 +33,6 @@ public class SendSmsActivity extends Activity {
 	private TextView tvSmsLeft, tvCharLeft, tvErrorSend, tvLastSent,
 			tvWaitSend;
 	private Button btnSend;
-	public static String doAd = "YES";
 	public static String tele2_url_send = "http://www.almaty.tele2.kz/WebServices/smsService.asmx/SendSms";
 
 	@Override
@@ -57,7 +56,7 @@ public class SendSmsActivity extends Activity {
 		new synCheck().execute();
 
 		AdBuddiz.setPublisherKey("c3cf0cc9-0ce4-4e55-8148-341c5ec11e1d"); // adisha
-		AdBuddiz.setTestModeActive();
+		if (Util.debugMode != null) AdBuddiz.setTestModeActive();
 		AdBuddiz.setLogLevel(AdBuddizLogLevel.Info);
 		AdBuddiz.cacheAds(this);
 	}
@@ -68,7 +67,7 @@ public class SendSmsActivity extends Activity {
 		if (Util.left_sms > 0)
 			new synSend().execute();
 		else
-			if (doAd != null)
+			if (Util.doAd != null)
 				adv();
 	}
 
@@ -123,7 +122,7 @@ public class SendSmsActivity extends Activity {
 	}
 
 	public void adv() {
-		if (doAd != null){
+		if (Util.doAd != null){
 			AdvTask advTask = new AdvTask();
 			advTask.a = this;
 			Timer timer = new Timer();
@@ -137,7 +136,7 @@ public class SendSmsActivity extends Activity {
 		public Activity a;
 
 		public void run() {			
-			if ((SendSmsActivity.doAd != null) && (AdBuddiz.isReadyToShowAd(a))) {
+			if ((Util.doAd != null) && (AdBuddiz.isReadyToShowAd(a))) {
 				AdBuddiz.showAd(a);
 			}
 		}
@@ -160,7 +159,7 @@ public class SendSmsActivity extends Activity {
 			Log.v("synSend", "doInBackground start");
 			try {
 				String sms_text = sp.getString("edText", "");
-				if (doAd != null)
+				if (Util.doAd != null)
 					sms_text = Util.calc_t(sms_text);
 				String data = ((new HttpClient()).getPOSTAJAX(
 						tele2_url_send,

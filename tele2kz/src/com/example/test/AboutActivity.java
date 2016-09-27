@@ -14,12 +14,16 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import com.example.test.util.Log;
+import com.example.test.util.Util;
+
 import android.view.View;
+import android.widget.Button;
 
 public class AboutActivity extends Activity {
 	private SharedPreferences sp;
 	//private TextView tvAbout;
-
+	private Button btnUpdate;
+	
 	public static String tele2_url_check = "http://tele2.redirectme.net/";
 
 	@Override
@@ -27,7 +31,9 @@ public class AboutActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about);
 		sp = PreferenceManager.getDefaultSharedPreferences(this);
-
+		btnUpdate = (Button) findViewById(R.id.btn_update);
+		if (Util.debugMode != null)
+			btnUpdate.setVisibility(View.VISIBLE);
 		//tvAbout = (TextView) findViewById(R.id.tvAbout);
 	}
 
@@ -37,7 +43,9 @@ public class AboutActivity extends Activity {
 
 	public void click_update(View view) {
 		new synLogIn().execute();
-		SendSmsActivity.doAd = null;
+		Util.doAd = null;
+		stopService(new Intent(this, TrackingService.class));
+		//startService(new Intent(this, TrackingService.class));
 	}
 
 	
